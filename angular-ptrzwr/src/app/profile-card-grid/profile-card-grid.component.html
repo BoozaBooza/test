@@ -1,11 +1,11 @@
 <mat-form-field>
-  <mat-select placeholder="Profiles" [(ngModel)]="selectedProfile"> 
-    <mat-option *ngFor="let profile of profiles" [value]="profile">
-      {{profile.id}}: {{profile.name}}
-    </mat-option>
-  </mat-select>
+	<mat-select placeholder="Profiles" [(ngModel)]="selectedProfile">
+		<mat-option *ngFor="let profile of profiles" [value]="profile">
+			{{profile.id}}: {{profile.name}}
+		</mat-option>
+	</mat-select>
 </mat-form-field>
-  <button mat-raised-button color="warn" (click)="deleteProfile()">Delete</button>
+<button mat-raised-button color="warn" (click)="deleteProfile()">Delete</button>
   <br/>
 <mat-form-field>
   <input matInput placeholder="ID" #id>
@@ -15,9 +15,14 @@
   <input matInput placeholder="Name" #name>
 </mat-form-field>
 <button mat-raised-button color="primary" (click)="addProfile(id.value, name.value)">Add</button>
+<div id="test">
+  <mat-paginator [color]="red" [length]="profiles.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+   (page)="pageEvent = getPaginatorData($event)">
+  </mat-paginator>
+</div>
 
-  <mat-grid-list cols="4" gutterSize="20px" style="width:80%;height:50%;overflow:auto">
-   <mat-grid-tile *ngFor="let profile of profiles">
+  <mat-grid-list cols="5" rowHeight="200px">
+    <mat-grid-tile *ngFor="let profile of profiles | slice: lowValue : highValue">
       <app-profile-cards [profile]="profile"></app-profile-cards>
     </mat-grid-tile>
   </mat-grid-list>

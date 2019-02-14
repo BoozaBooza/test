@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile } from '../profile';
 import { ProfileDataService } from '../profile-data.service';
-import { profiles } from './profiles';
-
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-profile-card-grid',
@@ -14,7 +13,7 @@ export class ProfileCardGridComponent implements OnInit {
   private profiles: Profile[];
   private selectedProfile: Profile = null;
 
-  constructor(private profileDataService: ProfileDataService) { 
+  constructor(private profileDataService: ProfileDataService) {
   }
 
   ngOnInit() {
@@ -23,63 +22,40 @@ export class ProfileCardGridComponent implements OnInit {
 
   addProfile(id: number, name: string) {
     let index: number;
-    if((index = this.profiles.findIndex(x=>x.id == id))>= 0) {
+    if ((index = this.profiles.findIndex(x => x.id == id)) >= 0) {
       this.profiles.splice(index, 1);
     }
-    // this.profiles.splice(this.profiles.length, 0, {id, name});
     this.profileDataService.addProfile(id, name);
-    this.profiles.sort((p1, p2)=>{
-      return p1.id-p2.id;
+    this.profiles.sort((p1, p2) => {
+      return p1.id - p2.id;
     })
   }
-  
+
   deleteProfile() {
-  
+
     this.profileDataService.deleteProfile(this.selectedProfile.id);
     alert(this.profiles.length);
   }
+
+  pageIndex: number = 0;
+  pageSize: number = 5;
+  lowValue: number = 0;
+  highValue: number = 5;
+
+  getPaginatorData(event) {
+    if(this.pageSize != event.pageSize) {
+      this.highValue = this.highValue + (event.pageSize - this.pageSize);
+      this.pageSize = event.pageSize;
+    }
+    console.log(event);
+    if (event.pageIndex === this.pageIndex + 1) {
+      this.lowValue = this.lowValue + this.pageSize;
+      this.highValue = this.highValue + this.pageSize;
+    }
+    else if (event.pageIndex === this.pageIndex - 1) {
+      this.lowValue = this.lowValue - this.pageSize;
+      this.highValue = this.highValue - this.pageSize;
+    }
+    this.pageIndex = event.pageIndex;
+  }
 }
-
-// ---------------------------------------------------------------------------------------------------
-
-
-// export class ProfileCardGridComponent implements OnInit {
-
-//   private profiles: Profile[];
-//   private selectedProfile: Profile = null;
-
-//   constructor() { 
-//   }
-
-//   ngOnInit() {
-    
-//  this.profiles =  [
-//   { id: 11, name: 'Mr. Nice' },
-//   { id: 12, name: 'Narco' },
-//   { id: 13, name: 'Bombasto' },
-//   { id: 14, name: 'Celeritas' },
-//   { id: 15, name: 'Magneta' },
-//   { id: 16, name: 'RubberMan' },
-//   { id: 17, name: 'Dynama' },
-//   { id: 18, name: 'Dr IQ' },
-//   { id: 19, name: 'Magma' },
-//   { id: 20, name: 'Tornado' }
-// ];
-
-//   }
-
-//   addProfile(id: number, name: string) {
-//     let index: number;
-//     if((index = this.profiles.findIndex(x=>x.id == id))>= 0) {
-//       this.profiles.splice(index, 1);
-//     }
-//     this.profiles.splice(this.profiles.length, 0, {id, name});
-//     this.profiles.sort((p1, p2)=>{
-//       return p1.id-p2.id;
-//     })
-//   }
-  
-//   deleteProfile() {
-//     this.profiles.splice(this.profiles.findIndex(x=>x.id == this.selectedProfile.id) , 1);
-//   }
-// }

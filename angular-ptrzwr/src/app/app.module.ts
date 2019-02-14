@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule, MatGridListModule, MatSelectModule, MatInputModule, MatCardModule } from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 import { AppComponent } from './app.component';
 import { ProfileDataService } from './profile-data.service';
@@ -15,7 +17,7 @@ import { ProfileCardGridComponent } from './profile-card-grid/profile-card-grid.
 @NgModule({
   imports:      [ BrowserModule, FormsModule, BrowserAnimationsModule,
                   MatButtonModule, MatGridListModule, MatSelectModule,
-                  MatInputModule, MatCardModule ],
+                  MatInputModule, MatCardModule, MatPaginatorModule ],
   declarations: [ AppComponent, ProfileCardsComponent, ProfileCardGridComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ ProfileDataService ]
