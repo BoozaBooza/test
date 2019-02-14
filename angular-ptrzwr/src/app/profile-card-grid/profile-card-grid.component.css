@@ -1,7 +1,13 @@
-mat-grid-tile {
-  background: lightblue;
+button { 
+  margin: 10px;
 }
 
-button { 
-  margin: 10px
+mat-grid-list {
+  width: 70%;
+  margin-left: 10%;
+  padding: 10px;
+}
+
+.mat-paginator-container {
+  justify-content: center !important;
 }
