@@ -4,4 +4,7 @@ button {
 
 mat-card {
   background: lightblue;
+  border: black;
+  border-style: groove;
+  border-color: midnightblue;
 }

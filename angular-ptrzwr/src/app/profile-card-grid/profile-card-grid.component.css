@@ -7,7 +7,3 @@ mat-grid-list {
   margin-left: 10%;
   padding: 10px;
 }
-
-.mat-paginator-container {
-  justify-content: center !important;
-}
