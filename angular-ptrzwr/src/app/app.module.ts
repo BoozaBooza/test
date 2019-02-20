@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule, MatGridListModule, MatSelectModule, MatInputModule, MatCardModule, MatPaginatorModule } from '@angular/material';
 import {  } from '@angular/material/paginator';
 import { RouterModule } from '@angular/router';
-import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbDropdownModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileDataService } from './profile-data.service';
@@ -24,7 +24,8 @@ import { ProfileCarouselComponent } from './profile-carousel/profile-carousel.co
   imports:      [ BrowserModule, FormsModule, BrowserAnimationsModule,
                   MatButtonModule, MatGridListModule, MatSelectModule,
                   MatInputModule, MatCardModule, MatPaginatorModule,
-                  NgbModule, RouterModule, AppRoutingModule, NgbDropdownModule ],
+                  NgbModule, RouterModule, AppRoutingModule, NgbDropdownModule,
+                  NgbCarouselModule ],
   declarations: [ AppComponent, ProfileCardsComponent, ProfileCardGridComponent, NavbarComponent, ProfileAddComponent, ProfileCarouselComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ ProfileDataService ]
