@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Profile } from '../profile';
+import { ProfileDataService } from '../profile-data.service';
 
 @Component({
   selector: 'app-profile-carousel',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileCarouselComponent implements OnInit {
 
-  constructor() { }
+  private profiles: Profile[]
+  constructor(private profileDataService: ProfileDataService) { }
 
   ngOnInit() {
+    this.profiles = this.profileDataService.getProfiles();
   }
 
 }

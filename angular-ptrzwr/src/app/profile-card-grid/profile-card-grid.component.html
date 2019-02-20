@@ -1,11 +1,102 @@
-<nav>
+<!-- <nav>
 	<a routerLink="/add">Add</a>
-</nav>
-
+</nav> -->
+<!-- 
 <mat-grid-list cols="5" rowHeight="200px">
 	<mat-grid-tile *ngFor="let profile of profiles | slice: startIndex : endIndex">
-		<app-profile-cards [profile]="profile"></app-profile-cards>
+		
 	</mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->
+
+<!---------------------------------------------------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm" *ngFor="let col of columnCount">
+      <div *ngFor="let profile of profiles | slice: 0 : pageSize/colCount, let i=index">
+        <app-profile-cards *ngIf="i<profiles.length/colCount" [profile]="profiles[col+5*i]"></app-profile-cards>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ----------------------------------------------- -->
+<!-- <body>
+  <div class="py-5">
+    <div class="container">
+      <div class="row hidden-md-up">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body> -->
 <mat-paginator [length]="profiles.length" [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent($event)" #paginator>
 </mat-paginator>
+
