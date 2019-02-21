@@ -1,4 +1,4 @@
-<div class="bd-example">
+<!-- <div class="bd-example">
   <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -23,4 +23,16 @@
       <span class="carousel-control-next-icon"></span>
     </a>
   </div>
-</div>
+</div> -->
+
+<!-- ---------------------------------------------------------------------------------- -->
+
+<ngb-carousel *ngIf="profiles" showNavigationArrows="true" showNavigationIndicators="true" interval="3000">
+  <ng-template ngbSlide *ngFor="let profile of profiles | slice: 0:6">
+    <img [src]="profile.cover_src" alt="Random slide">
+    <div class="carousel-caption">
+      <h3>Slide Label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

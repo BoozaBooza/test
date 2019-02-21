@@ -18,6 +18,7 @@ import { ProfileCardGridComponent } from './profile-card-grid/profile-card-grid.
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileAddComponent } from './profile-add/profile-add.component';
 import { ProfileCarouselComponent } from './profile-carousel/profile-carousel.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { ProfileCarouselComponent } from './profile-carousel/profile-carousel.co
                   MatInputModule, MatCardModule, MatPaginatorModule,
                   NgbModule, RouterModule, AppRoutingModule, NgbDropdownModule,
                   NgbCarouselModule ],
-  declarations: [ AppComponent, ProfileCardsComponent, ProfileCardGridComponent, NavbarComponent, ProfileAddComponent, ProfileCarouselComponent ],
+  declarations: [ AppComponent, ProfileCardsComponent, ProfileCardGridComponent, NavbarComponent, ProfileAddComponent, ProfileCarouselComponent, ModalComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ ProfileDataService ]
 })
