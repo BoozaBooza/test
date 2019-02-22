@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileDataService } from '../profile-data.service';
 import { Profile } from '../profile';
 
@@ -31,5 +32,18 @@ export class ProfileAddComponent implements OnInit {
 
   deleteProfile() {
     this.profileDataService.deleteProfile(this.selectedProfile.id);
+  }
+}
+// --------------------------------------------------------------------------------
+
+@Component({
+  selector: 'add-modal-component',
+  template: `<button class="btn btn-lg btn-outline-primary" (click)="open()">Add profile</button>`
+})
+export class ModalComponent {
+  constructor(private modalService: NgbModal) {}
+
+  open() {
+    const modalRef = this.modalService.open(ProfileAddComponent, {centered: true});
   }
 }

@@ -1,4 +1,31 @@
-<router-outlet name="carousel"></router-outlet>
-<router-outlet name="nav"></router-outlet>
-<router-outlet name="modal"></router-outlet>
-<router-outlet name="grid"></router-outlet>
+<bootstrap-grid>
+
+   <container>
+  <row>
+    <column sm="6" md="4" lg="3">
+      Column 1
+    </column>
+    <column sm="6" md="4" lg="3">
+      Column 2
+    </column>
+    <column sm="6" md="4" lg="3">
+      Column 3
+    </column>
+    <column sm="6" md="4" lg="3">
+      Column 4
+    </column>
+  </row>
+  <row>
+    <column sm="6" smPush="3" smPull="3">
+      Centered Column
+    </column>
+  </row>
+</container>
+  <router-outlet name="carousel"></router-outlet>
+  <router-outlet name="nav"></router-outlet>
+  <router-outlet name="modal"></router-outlet>
+  <router-outlet name="grid"></router-outlet>
+
+ 
+
+</bootstrap-grid>
